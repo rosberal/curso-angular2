@@ -7,6 +7,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./diretiva-ngswitch.component.css']
 })
 export class DiretivaNgswitchComponent implements OnInit {
+aba: string = 'home';
 
   constructor() { }
 
