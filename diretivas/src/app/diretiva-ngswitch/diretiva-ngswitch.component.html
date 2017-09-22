@@ -10,5 +10,12 @@
       <a class="nav-item nav-link" (click)="aba='lista'" [class.active]="aba=='lista'">Lista</a>
 
     </div>
+
   </div>
 </nav>
+<div>Teste</div>
+<div class="container" [ngSwitch]="aba">
+  <p *ngSwitchCase="'mapa'">Modo mapa Ativado</p>
+  <p *ngSwitchCase="'lista'">Modo lista Ativado</p>
+  <p *ngSwitchDefault>Home</p>
+  </div>
