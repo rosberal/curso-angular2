@@ -8,4 +8,16 @@
 Mudar Atributo Ativo
 </button>
 <br>
-<input type="text" [(ngModel)]= "tamanhoFonte">
+<input type="text" [(ngModel)]=  "tamanhoFonte">
+
+<h5>Styles com diretiva ngstyle</h5>
+<button
+[ngStyle]="{ 'backgroundColor': (ativo ? 'blue':'gray'),
+'color': (ativo ? 'white' : 'black'),
+'fontWeight': (ativo ? 'bold':'normal'),
+'fontSize': (tamanhoFonte +'px')
+}"
+
+(click)="onClick()" >
+Mudar Atributo Ativo 2
+</button>
