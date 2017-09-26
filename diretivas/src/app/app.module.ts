@@ -10,6 +10,8 @@ import { DiretivaNgforComponent } from './diretiva-ngfor/diretiva-ngfor.componen
 import { DiretivaNgclassComponent } from './diretiva-ngclass/diretiva-ngclass.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { DiretivaNgstyleComponent } from './diretiva-ngstyle/diretiva-ngstyle.component';
+import { OperadorElvisComponent } from './operador-elvis/operador-elvis.component';
+import { ExemploNgContentComponent } from './exemplo-ng-content/exemplo-ng-content.component';
 
 
 
@@ -20,7 +22,9 @@ import { DiretivaNgstyleComponent } from './diretiva-ngstyle/diretiva-ngstyle.co
     DiretivaNgswitchComponent,
     DiretivaNgforComponent,
     DiretivaNgclassComponent,
-    DiretivaNgstyleComponent
+    DiretivaNgstyleComponent,
+    OperadorElvisComponent,
+    ExemploNgContentComponent
 
   ],
   imports: [
