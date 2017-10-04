@@ -1,0 +1,26 @@
+<div>
+    <p appFundoAmarelo >
+      Texto com fundo amarelo!
+    </p>
+
+    <button appFundoAmarelo>Button!</button>
+<br><br>
+<p appHighlightMouse>Texto com highlight quando passo o mouse</p>
+
+<p appHighlight [defaultColor]="'grey'" [highlightColor]="'red'"  >Texto com highlight quando passo o mouse</p>
+
+    </div>
+
+    <div *ngIf ="mostrarCursos">
+      <h3>Lista de Cursos aqui</h3>
+      <br>
+      <h3>{{cursos}}</h3>
+      </div>
+
+      <div *appNgElse ="mostrarCursos">
+        Não existem cursos para serem listados
+        </div>
+
+      <button (click)=mostrarOuEsconderCursos()>Mostrar ou esconder cursos</button>
+
+
