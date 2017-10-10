@@ -1,14 +1,14 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Rx';
-import { CursosService } from './../cursos/cursos.service';
-
+import { CursosService } from './../cursos.service';
+ 
 @Component({
   selector: 'app-curso-detalhe',
   templateUrl: './curso-detalhe.component.html',
   styleUrls: ['./curso-detalhe.component.css']
 })
-export class CursoDetalheComponent implements OnInit {
+export class CursoDetalheComponent implements OnInit, OnDestroy {
   id: number;
   curso: any;
   inscricao: Subscription;
@@ -16,7 +16,7 @@ export class CursoDetalheComponent implements OnInit {
     private _route: ActivatedRoute,
     private cursosService: CursosService,
     private router: Router
-  ) {
+  ) { 
     // console.log(this._route);
     // this.id = this._route.snapshot.params['id'];
   }
@@ -28,8 +28,8 @@ export class CursoDetalheComponent implements OnInit {
  console.log('aqui');
       this.router.navigate(['/naoEncontrado']);
     }
-    
-    });
+
+  });
   }
 
   ngOnDestroy() {
