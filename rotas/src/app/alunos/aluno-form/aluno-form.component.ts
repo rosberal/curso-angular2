@@ -2,16 +2,17 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Rx';
 import { ActivatedRoute } from '@angular/router';
 import { AlunosService } from '../alunos.service';
+import { IFormCanDeactivate } from '../../guards/form-candeactivate';
 
 @Component({
   selector: 'app-aluno-form',
   templateUrl: './aluno-form.component.html',
   styleUrls: ['./aluno-form.component.css']
 })
-export class AlunoFormComponent implements OnInit, OnDestroy {
+export class AlunoFormComponent implements OnInit, OnDestroy, IFormCanDeactivate {
   inscricao: Subscription;
   aluno: any= {};
-
+ private formMudou: boolean = false;
   constructor(
     private route: ActivatedRoute,
     private alunosService: AlunosService
@@ -30,4 +31,22 @@ export class AlunoFormComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.inscricao.unsubscribe();
   }
+
+onInput() {
+this.formMudou = true;
+// console.log('mudou');
+}
+
+podeMudarRota() {
+  if (this.formMudou) {
+   return confirm('tem certeza que deseja sair dessa página?');
+  }
+  return true;
+}
+
+podeDesativar() {
+  return this.podeMudarRota();
+}
+
+
 }
