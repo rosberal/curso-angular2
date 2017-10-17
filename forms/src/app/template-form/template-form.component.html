@@ -1,0 +1,25 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)"  >
+  <div class="form-group"  >
+    <label  for="nome">Nome</label>
+    <input type="text" class="form-control" 
+    [class.is-invalid]="!nome.valid && nome.touched"
+    id="nome" placeholder="Nome" name="nome" [(ngModel)]="usuario.nome"
+    required #nome="ngModel">
+    <div class="invalid-feedback" *ngIf="!nome.valid && nome.touched">
+      Nome é Obrigatório!
+    </div>
+  </div>
+   
+<br> 
+  <div class="form-group" > 
+    <label for="email">Email</label>
+    <input type="text" class="form-control" 
+    [class.is-invalid]="!email.valid && email.touched"
+    id="email" placeholder="nome@email.com" name="email" 
+    [(ngModel)]="usuario.email" required email #email="ngModel">
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="!email.valid && email.touched">Email é Obrigatório!</div>
+  <button class="btn btn-primary my-2 my-sm-0" type="submit">Submit</button>
+ 
+
+</form> 
