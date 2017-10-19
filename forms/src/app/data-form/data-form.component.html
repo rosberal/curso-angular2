@@ -1,3 +1,124 @@
-<p>
-  data-form works!
-</p>
+ <form [formGroup]="formulario"  (ngSubmit)="onSubmit()">
+  
+    <div class="form-group col-sm-12">
+      <label class="col-form-label" for="nome">Nome</label>
+      <input type="text" class="form-control" [ngClass] ="aplicaCssErro('nome')"
+      id="nome" placeholder="Nome" formControlName="nome"
+    
+      >
+      <!-- <span class="glyphicon glyphicon-remove form-control-feedback"
+  aria-hidden="true" *ngIf="!nome.valid && nome.touched"></span>
+  <span class="sr-only" *ngIf="!nome.valid && nome.touched" >(error)</span> -->
+      <div class="invalid-feedback alert-danger strong">
+        Nome é Obrigatório!
+      </div>
+    </div>
+
+  
+    <div class="form-group col-sm-12" >
+      <label for="email" class="col-form-label" [class.is-invalid]='true' >Email</label>
+      <input type="text" class="form-control" id="email" placeholder="nome@email.com"
+        formControlName="email" [ngClass] ="aplicaCssErro('email')">
+      <div class="invalid-feedback alert-danger">
+        Email é Obrigatório!
+      </div>
+      <div class="alert-danger"  [ngClass] ="verificaEmailInvalido()">
+        Email Inválido!
+      </div>
+    
+
+
+      <div formGroupName="endereco">
+        <div class="form-row col-sm-12">
+          <div class="form-group col-sm-3">
+            <label for="cep" class="col-form-label">CEP</label>
+            <input type="text" class="form-control"  formControlName="cep"
+             id=cep [ngClass] = "aplicaCssErro('endereco.cep')"
+            (blur)="consultaCEP()">
+            <div class="invalid-feedback">
+              Cep é Obrigatório!
+            </div>
+          </div>
+      
+          <div class="form-group col-sm-3">
+            <label for="numero" class="col-form-label">Número</label>
+            <input type="text" class="form-control" id=numero
+            [ngClass] = "aplicaCssErro('endereco.numero')" formControlName="numero">
+            <div class="invalid-feedback" >
+              Número é Obrigatório!
+            </div>
+          </div>
+      
+          <div class="form-group col-sm-6">
+            <label for="complemento" class="col-form-label">Complemento</label>
+            <input type="text" class="form-control" id=complemento
+            [ngClass] = "aplicaCssErro('endereco.complemento')" formControlName="complemento"
+              >
+      
+          </div>
+      
+      
+          <div class="form-group col-sm-12">
+            <label class="col-form-label" for="rua">Rua</label>
+            <input type="text" class="form-control" 
+            [ngClass] = "aplicaCssErro('endereco.rua')"
+             id="rua" placeholder="Rua" formControlName="rua">
+            <div class="invalid-feedback">
+              Rua é Obrigatório!
+            </div>
+          </div>
+      
+          <div class="form-row col-sm-12">
+            <div class="form-group col-sm-5">
+              <label for="bairro" class="col-form-label">Bairro</label>
+              <input type="text" class="form-control" id=bairro
+              [ngClass] = "aplicaCssErro('endereco.bairro')" formControlName="bairro" >
+              <div class="invalid-feedback">
+                Bairro é Obrigatório!
+              </div>
+            </div>
+            
+      
+            <div class="form-group col-sm-4">
+              <label for="cidade" class="col-form-label">Cidade</label>
+              <input type="text" class="form-control" id=cidade 
+              [ngClass] = "aplicaCssErro('endereco.cidade')" formControlName="cidade">
+              <div class="invalid-feedback">
+                Cidade é Obrigatória!
+              </div>
+        
+            </div>
+            
+      
+      
+            <div class="form-group col-sm-3">
+              <label for="estado" class="col-form-label">Estado</label>
+              <input type="text" class="form-control" id=estado 
+              [ngClass] = "aplicaCssErro('endereco.estado')" formControlName="estado">
+              <div class="invalid-feedback">
+                Estado é Obrigatório!
+              </div>
+          
+            </div>
+      
+          </div>
+      
+        </div>
+      
+      </div>
+      
+
+
+
+    
+    </div>
+
+    
+
+
+    <div class="col-sm-12">
+      <button class="btn btn-primary my-2 my-sm-0"  type="submit">Submit</button>
+      <button class="btn my-2 my-sm-0" (click)= resetar() >Cancelar</button>
+    </div>
+     <app-form-debug [form]="formulario"></app-form-debug> 
+      </form>

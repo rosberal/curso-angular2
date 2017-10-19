@@ -17,14 +17,20 @@ export class TemplateFormComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit(form) {
-    console.log('form do on submit', form);
+  onSubmit(formulario) {
+    console.log('form do on submit', formulario);
 
-    this.http.post('teste/teste', JSON.stringify(form.value))
+    this.http.post('teste/teste', JSON.stringify(formulario.value))
     // this.http.post('https://httpbin.org/post', JSON.stringify(form.value))
     
   .map(res => res)
-  .subscribe(dados => console.log(dados));
+  .subscribe(dados => {
+    console.log(dados);
+    formulario.form.reset();
+  }
+
+
+);
 
   }
 
